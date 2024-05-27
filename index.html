@@ -32,6 +32,7 @@
 
 					var x_hex = document.forms["mapoptions"]["xvalue"].value; //set how many hexes on x axis
 					var y_hex = document.forms["mapoptions"]["yvalue"].value; //set how many hexes on y axis
+					var border_width = document.forms["mapoptions"]["border_width"].value; //set how many hexes on y axis
 
 					ctx.resetTransform(); //reset all transformations
 
@@ -85,7 +86,7 @@
 							ctx.strokeStyle = HexStrokeStyle; //set hex stroke style
 							ctx.fillStyle = HexFillStyle; //set hex fill style
 
-							ctx.translate( 1 , 1 ); //translates from 0,0 to 1,1 in order to give a 1px border to canvas
+							ctx.translate( border_width , border_width ); //translates from 0,0 to 1,1 in order to give a 1px border to canvas
 
 							if (cur_hex == x_hex){
 								ctx.translate( i * 70 , j * 80 ); //translates to next hex location
@@ -93,7 +94,7 @@
 								ctx.translate( i * 70 , j * 80 + 40 ); //translates to next hex location
 							}
 
-							ctx.lineWidth = 1; //width (in pixels) of stroked hex path
+							ctx.lineWidth = border_width; //width (in pixels) of stroked hex path
 							ctx.lineJoin = 'miter'; //when hex paths join have sharp corners
 							if (hstroke.checked){ //if stoke variable is checked
 								ctx.stroke(hexagon); //stroke the hex path
@@ -176,6 +177,10 @@
 					Rows:
 					<br>
 					<input type="text" name="yvalue" value="10" size="3"> <!-- set number of y hexes -->
+					<br>
+					Border width:
+					<br>
+					<input type="text" name="border_width" value="3" size="3"> <!-- set border width -->
 				</p>
 				<p>
 					<input type="checkbox" name="hex_stroke" checked> Hex Outlines <!-- stroke the hex paths on canvas -->
