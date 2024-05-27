@@ -32,7 +32,7 @@
 
 					var x_hex = document.forms["mapoptions"]["xvalue"].value; //set how many hexes on x axis
 					var y_hex = document.forms["mapoptions"]["yvalue"].value; //set how many hexes on y axis
-					var border_width = document.forms["mapoptions"]["border_width"].value; //set how many hexes on y axis
+					var border_width = document.forms["mapoptions"]["border_width"].value; //set border wodth of a hex
 
 					ctx.resetTransform(); //reset all transformations
 
@@ -86,7 +86,7 @@
 							ctx.strokeStyle = HexStrokeStyle; //set hex stroke style
 							ctx.fillStyle = HexFillStyle; //set hex fill style
 
-							ctx.translate( border_width , border_width ); //translates from 0,0 to 1,1 in order to give a 1px border to canvas
+							ctx.translate( border_width , border_width ); //translates from 0,0 to border_width,border_width in order to give a border_width px border to canvas
 
 							if (cur_hex == x_hex){
 								ctx.translate( i * 70 , j * 80 ); //translates to next hex location
